@@ -1,3 +1,5 @@
+import random
+
 class Deck:
     def __init__(self):
         self.cards = []
@@ -12,7 +14,14 @@ class Deck:
                 self.cards.append(card)
 
     def shuffle(self):
-        return ""
+
+        # Implementing Fisher-Yates Shuffle Algorithm
+
+        for i in range(len(self.cards), -1):
+            j = random.randint(0, i)
+            self.cards[i], self.cards[j] = self.cards[j], self.cards[i]
+
+        return print(self.cards)
 
     def deal(self):
         return self.cards.pop()
