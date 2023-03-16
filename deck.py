@@ -1,4 +1,7 @@
 import random
+from card import Card
+import os
+
 
 class Deck:
     def __init__(self):
@@ -17,17 +20,16 @@ class Deck:
 
         # Implementing Fisher-Yates Shuffle Algorithm
 
-        for i in range(len(self.cards), -1):
+        for i in range(len(self.cards)-1, 0, -1):
             j = random.randint(0, i)
             self.cards[i], self.cards[j] = self.cards[j], self.cards[i]
-
-        return print(self.cards)
 
     def deal(self):
         return self.cards.pop()
 
     def __str__(self):
         deck_values = ""
+        new_line = '\n'
         for card in self.cards:
-            deck_values += f"\n {card}"
-        return f"The deck has:{deck_values}"
+            deck_values += f'{card}{new_line}'
+        return f'The deck has:{deck_values}'
