@@ -20,6 +20,8 @@ class Deck:
     # shuffles deck
     def shuffle(self):
 
+        self.build()
+
         # Implementing Fisher-Yates Shuffle Algorithm
         for i in range(len(self.cards)-1, 0, -1):
             j = random.randint(0, i+1)
